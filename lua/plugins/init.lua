@@ -5,6 +5,7 @@ return {
   require('plugins.core.telescope-fzf-native'),
   require('plugins.core.treesitter'),
   require('plugins.core.sleuth'),
+  require('plugins.core.debug'),
   require('plugins.extra.fugitve'),
   require('plugins.extra.rhubarb'),
   require('plugins.extra.which-key'),
@@ -13,4 +14,5 @@ return {
   require('plugins.extra.ident-blankline'),
   require('plugins.extra.comment'),
   require('plugins.extra.themes'),
+  require('plugins.extra.autoformat'),
 }

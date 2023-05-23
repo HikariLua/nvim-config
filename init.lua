@@ -25,4 +25,3 @@ require('theme')
 
 -- load general and plugins settings
 require('settings')
-
