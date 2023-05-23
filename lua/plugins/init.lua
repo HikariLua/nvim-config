@@ -16,5 +16,6 @@ return {
   require('plugins.extra.comment'),
   require('plugins.extra.themes'),
   require('plugins.extra.autoformat'),
-  require('plugins.extra.vim-godot')
+  require('plugins.extra.vim-godot'),
+  require('plugins.extra.surround')
 }
