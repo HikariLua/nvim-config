@@ -7,8 +7,12 @@ vim.o.mouse = 'a'
 -- Sync clipboard between OS and Neovim.
 vim.o.clipboard = 'unnamedplus'
 
+-- tab width
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+
 -- Enable break indent
-vim.o.breakindent = true
+vim.o.breakindent = false
 
 -- Save undo history
 vim.o.undofile = true
@@ -32,4 +36,3 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
-
