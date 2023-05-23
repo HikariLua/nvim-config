@@ -4,6 +4,7 @@ return {
   require('plugins.core.telescope'),
   require('plugins.core.telescope-fzf-native'),
   require('plugins.core.treesitter'),
+  require('plugins.core.autopairs'),
   require('plugins.core.sleuth'),
   require('plugins.core.debug'),
   require('plugins.extra.fugitve'),
