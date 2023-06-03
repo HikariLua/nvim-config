@@ -13,6 +13,8 @@ vim.o.shiftwidth = 4
 
 -- Enable break indent
 vim.o.breakindent = false
+vim.o.autoindent = true
+vim.o.smartindent = true
 
 -- Save undo history
 vim.o.undofile = true

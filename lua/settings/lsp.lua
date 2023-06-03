@@ -42,6 +42,7 @@ local servers = {
   csharp_ls = {},
   cssls = {},
   cssmodules_ls = {},
+  efm = {},
   html = {},
   jsonls = {},
   sqlls = {},
@@ -82,8 +83,31 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
-require 'lspconfig'.gdscript.setup {
+require('lspconfig').gdscript.setup {
   capabilities = require('cmp_nvim_lsp').default_capabilities(
     vim.lsp.protocol.make_client_capabilities()
-  )
+  ),
+
+  on_attach = on_attach,
+
+  flags = {
+    debounce_text_changes = 150,
+  }
+}
+
+require('lspconfig').efm.setup {
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+
+  init_options = { documentFormatting = true },
+  settings = {
+    rootMarkers = { ".git/" },
+    languages = {
+      gdscript = {
+        { formatCommand = "gdformat -l 80 -", formatStdin = true }
+      },
+    },
+  }
 }
