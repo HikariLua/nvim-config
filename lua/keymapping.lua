@@ -10,8 +10,12 @@ vim.keymap.set(
 -- kill buffer
 vim.keymap.set({ 'n', 'v' }, '<leader>kb', ':bd<CR>', { silent = true })
 
+-- next/previous buffer
+vim.keymap.set('n', '<C-n>', ':bN<CR>', { silent = true })
+vim.keymap.set('n', '<C-p>', ':bp<CR>', { silent = true })
+
 -- save file
-vim.keymap.set({ 'i', 'n', 'v' }, '<C-s>', ':w<CR>')
+vim.keymap.set({ 'i', 'n', 'v' }, '<C-s>', vim.cmd.write)
 
 -- move line
 vim.keymap.set('n', '<M-j>', 'ddp')
@@ -38,7 +42,7 @@ vim.keymap.set('v', '"', 'c""<Esc>hp')
 vim.keymap.set('v', '{', 'c{}<Esc>hp')
 vim.keymap.set('v', '(', 'c()<Esc>hp')
 vim.keymap.set('v', '[', 'c[]<Esc>hp')
-vim.keymap.set('v', '<', 'c<><Esc>hp')
+vim.keymap.set('v', ',', 'c<><Esc>hp')
 
 -- do nothing when pressing space for not confict with leader key
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
