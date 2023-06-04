@@ -11,9 +11,12 @@ return {
 
   'EdenEast/nightfox.nvim',
   'folke/tokyonight.nvim',
-  { 'rose-pine/neovim', name = 'rose-pine' },
-  { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
+  { 'rose-pine/neovim',          name = 'rose-pine' },
+  { "bluz71/vim-moonfly-colors", name = "moonfly",  lazy = false, priority = 1000 },
   'Mofiqul/dracula.nvim',
   'matgd/godotcolor-vim',
+  { 'catppuccin/nvim', name = 'catppuccin' },
+  'yorik1984/newpaper.nvim',
+  'NLKNguyen/papercolor-theme',
+  'sainnhe/sonokai',
 }
-
