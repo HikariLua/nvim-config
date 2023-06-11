@@ -7,6 +7,8 @@ return {
   require('plugins.core.autopairs'),
   require('plugins.core.comment'),
   require('plugins.core.oil'),
+  require('plugins.core.autosave'),
+  require('plugins.core.rust-tools'),
   require('plugins.core.sleuth'),
   require('plugins.core.debug'),
 
@@ -18,6 +20,7 @@ return {
   require('plugins.extra.ident-blankline'),
   require('plugins.extra.comment'),
   require('plugins.extra.themes'),
+  require('plugins.extra.neorg'),
   require('plugins.extra.autoformat'),
   require('plugins.extra.vim-godot'),
   require('plugins.extra.surround')

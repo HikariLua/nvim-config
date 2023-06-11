@@ -11,7 +11,7 @@ vim.keymap.set(
 vim.keymap.set({ 'n', 'v' }, '<leader>kb', ':bd<CR>', { silent = true })
 
 -- next/previous buffer
-vim.keymap.set('n', '<C-n>', ':bN<CR>', { silent = true })
+vim.keymap.set('n', '<C-n>', ':bn<CR>', { silent = true })
 vim.keymap.set('n', '<C-p>', ':bp<CR>', { silent = true })
 
 -- save file

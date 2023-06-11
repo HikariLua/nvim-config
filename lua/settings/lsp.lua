@@ -48,7 +48,6 @@ local servers = {
   sqlls = {},
   svelte = {},
   pyright = {},
-  rust_analyzer = {},
   tsserver = {},
 
   lua_ls = {
@@ -111,3 +110,24 @@ require('lspconfig').efm.setup {
     },
   }
 }
+
+require('lspconfig').pyright.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+
+  settings = {
+    languages = {
+      python = {
+        { formatCommand = 'blue', formatStdin = true }
+      },
+    },
+  }
+}
+
+-- require('lspconfig').rust_analyzer.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   cmd = {
+--     'rustup', 'run', 'stable', 'rust-analyzer'
+--   },
+-- }
