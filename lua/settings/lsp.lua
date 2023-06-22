@@ -43,6 +43,7 @@ local servers = {
   cssls = {},
   cssmodules_ls = {},
   efm = {},
+  gopls = {},
   html = {},
   jsonls = {},
   sqlls = {},
@@ -82,7 +83,10 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
-require('lspconfig').gdscript.setup {
+local lspconfig = require('lspconfig')
+local util = require('lspconfig/util')
+
+lspconfig.gdscript.setup {
   capabilities = require('cmp_nvim_lsp').default_capabilities(
     vim.lsp.protocol.make_client_capabilities()
   ),
@@ -94,7 +98,7 @@ require('lspconfig').gdscript.setup {
   }
 }
 
-require('lspconfig').efm.setup {
+lspconfig.efm.setup {
   on_attach = on_attach,
   flags = {
     debounce_text_changes = 150,
@@ -111,7 +115,7 @@ require('lspconfig').efm.setup {
   }
 }
 
-require('lspconfig').pyright.setup {
+lspconfig.pyright.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 
@@ -124,7 +128,23 @@ require('lspconfig').pyright.setup {
   }
 }
 
--- require('lspconfig').rust_analyzer.setup {
+lspconfig.gopls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+
+  cmd = { "gopls", "serve" },
+  filetypes = { "go", "gomod" },
+  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+    },
+  },
+}
+-- lspconfig.rust_analyzer.setup {
 --   on_attach = on_attach,
 --   capabilities = capabilities,
 --   cmd = {
