@@ -5,7 +5,7 @@ vim.o.hlsearch = false
 vim.o.mouse = 'a'
 
 -- Sync clipboard between OS and Neovim.
-vim.o.clipboard = 'unnamedplus'
+vim.o.clipboard = 'unnamed'
 
 -- tab width
 vim.o.tabstop = 4

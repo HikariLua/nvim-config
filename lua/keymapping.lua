@@ -6,7 +6,6 @@ vim.keymap.set(
   { noremap = true, silent = true }
 )
 
-
 -- kill buffer
 vim.keymap.set({ 'n', 'v' }, '<leader>kb', ':bd<CR>', { silent = true })
 
@@ -16,6 +15,13 @@ vim.keymap.set('n', '<C-p>', ':bp<CR>', { silent = true })
 
 -- save file
 vim.keymap.set({ 'i', 'n', 'v' }, '<C-s>', vim.cmd.write)
+
+-- copy/paste to system clipboard
+vim.keymap.set('n', '<leader>y', '"+yy')
+vim.keymap.set('n', '<leader>p', '"+p')
+
+vim.keymap.set('v', '<leader>y', '"+y')
+vim.keymap.set('v', '<leader>p', '"+p')
 
 -- move line
 vim.keymap.set('n', '<M-j>', 'ddp')
@@ -37,12 +43,12 @@ vim.keymap.set('i', '<M-k>', '<Up>')
 vim.keymap.set('i', '<M-l>', '<Right>')
 
 -- surround with characters
-vim.keymap.set('v', '\'', 'c\'\'<Esc>hp')
-vim.keymap.set('v', '"', 'c""<Esc>hp')
-vim.keymap.set('v', '{', 'c{}<Esc>hp')
-vim.keymap.set('v', '(', 'c()<Esc>hp')
-vim.keymap.set('v', '[', 'c[]<Esc>hp')
-vim.keymap.set('v', ',', 'c<><Esc>hp')
+vim.keymap.set('v', '<leader>\'', 'c\'\'<Esc>hp')
+vim.keymap.set('v', '<leader>"', 'c""<Esc>hp')
+vim.keymap.set('v', '<leader>{', 'c{}<Esc>hp')
+vim.keymap.set('v', '<leader>(', 'c()<Esc>hp')
+vim.keymap.set('v', '<leader>[', 'c[]<Esc>hp')
+vim.keymap.set('v', '<leader>,', 'c<><Esc>hp')
 
 -- do nothing when pressing space for not confict with leader key
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
