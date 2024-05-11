@@ -11,6 +11,9 @@ return {
   require('plugins.core.rust-tools'),
   require('plugins.core.sleuth'),
   require('plugins.core.debug'),
+  require('plugins.core.lua-snip'),
+  require('plugins.core.vscode-snippets'),
+  require('plugins.core.nio'),
 
   require('plugins.extra.fugitve'),
   require('plugins.extra.rhubarb'),
@@ -20,6 +23,7 @@ return {
   require('plugins.extra.ident-blankline'),
   require('plugins.extra.comment'),
   require('plugins.extra.themes'),
+  require('plugins.extra.luarocks'),
   require('plugins.extra.neorg'),
   require('plugins.extra.autoformat'),
   require('plugins.extra.vim-godot'),

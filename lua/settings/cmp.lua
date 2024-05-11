@@ -1,15 +1,12 @@
 -- nvim-cmp setup
 local cmp = require 'cmp'
-local luasnip = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
+require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets/" } })
+
+local luasnip = require 'luasnip'
 luasnip.config.setup {}
 
 cmp.setup {
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
   mapping = cmp.mapping.preset.insert {
     ['<C-j>'] = cmp.mapping.select_next_item(),
     ['<C-k>'] = cmp.mapping.select_prev_item(),
@@ -39,9 +36,19 @@ cmp.setup {
       end
     end, { 'i', 's' }),
   },
-  sources = {
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
+  sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-  },
+  }, {
+    { name = 'buffer' },
+  })
+  -- sources = {
+  --   { name = 'nvim_lsp' },
+  --   { name = 'luasnip' },
+  -- },
 }
-
