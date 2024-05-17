@@ -10,7 +10,7 @@ return {
           config = {
             icons = {
               heading = {
-                icons = { "🌺", "🌼", "🌹", "💞", "🌸", "💓", "💘", "🌒" }
+                icons = { "🌺", "🌸", "🌹", "💞", "🌼", "💓", "💘", "🌒" }
               },
               list = {
                 icons = { "♥️" }
@@ -38,7 +38,7 @@ return {
       },
     }
 
-    vim.wo.foldlevel = 99
+    vim.wo.foldlevel = 0
     vim.wo.conceallevel = 2
   end,
 }
