@@ -46,10 +46,12 @@ local servers = {
   gopls = {},
   html = {},
   jsonls = {},
+  rust_analyzer = {},
   sqlls = {},
   svelte = {},
   pyright = {},
   tsserver = {},
+  volar = {},
 
   lua_ls = {
     Lua = {
@@ -144,6 +146,23 @@ lspconfig.gopls.setup {
     },
   },
 }
+-- Setup nvim-lspconfig for Volar
+local nvim_lsp = require('lspconfig')
+
+nvim_lsp.volar.setup {}
+
+-- Define a function to run eslint --fix on save
+local function eslint_fix()
+  vim.cmd([[
+    augroup EslintFix
+      autocmd!
+      autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.vue silent! :EslintFixAll
+    augroup END
+  ]])
+end
+
+-- Register the eslint_fix function
+eslint_fix()
 -- lspconfig.rust_analyzer.setup {
 --   on_attach = on_attach,
 --   capabilities = capabilities,
