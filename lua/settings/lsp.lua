@@ -39,6 +39,7 @@ end
 
 local servers = {
   bashls = {},
+  clangd = {},
   csharp_ls = {},
   cssls = {},
   cssmodules_ls = {},
