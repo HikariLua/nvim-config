@@ -27,5 +27,6 @@ return {
   require('plugins.extra.neorg'),
   require('plugins.extra.autoformat'),
   require('plugins.extra.vim-godot'),
-  require('plugins.extra.surround')
+  require('plugins.extra.surround'),
+  require('plugins.extra.dap'),
 }

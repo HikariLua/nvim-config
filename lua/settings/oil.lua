@@ -3,6 +3,8 @@ require('oil').setup {
     'icon',
   },
 
+  default_file_explorer = false,
+
   keymaps = {
     ['<M-l>'] = 'actions.select',
     ["<CR>"] = "actions.select",
