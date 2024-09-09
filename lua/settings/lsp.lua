@@ -1,4 +1,4 @@
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
   -- In this case, we create a function that lets us more easily define mappings specific
   -- for LSP related items. It sets the mode, buffer and description for us each time.
   local nmap = function(keys, func, desc)
@@ -35,6 +35,14 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
+
+  -- Enable format on save
+  if client.server_capabilities.documentFormattingProvider then
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      callback = function() vim.lsp.buf.format({ bufnr = bufnr }) end,
+    })
+  end
 end
 
 local servers = {
@@ -162,6 +170,27 @@ local function eslint_fix()
   ]])
 end
 
+local function run_csharpier()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local filepath = vim.api.nvim_buf_get_name(bufnr)
+
+  vim.loop.spawn("dotnet", {
+    args = { "csharpier", filepath },
+  }, function(code, signal)
+    if code == 0 then
+      vim.schedule(function()
+        vim.api.nvim_command("checktime") -- Reload the buffer if it has been modified
+      end)
+    end
+  end)
+end
+
+-- Create an autocmd to run CSharpier asynchronously on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.cs",
+  callback = run_csharpier,
+})
+-- vim.api.nvim_command("autocmd BufWritePre *.cs execute ':silent !dotnet csharpier %'")
 -- Register the eslint_fix function
 eslint_fix()
 -- lspconfig.rust_analyzer.setup {
